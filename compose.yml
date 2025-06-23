@@ -1,0 +1,16 @@
+services:
+  tailscale-gateway:
+    build: .
+    container_name: tailscale-gateway
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./ts-state:/var/lib/tailscale
+    environment:
+      - TS_AUTHKEY=${TS_AUTHKEY}
+      - TS_ROUTES=${TS_ROUTES}
+      - TS_HOSTNAME=${TS_HOSTNAME}
+    restart: unless-stopped
