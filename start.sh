@@ -11,6 +11,7 @@ TAILSCALED_PID=$!
 
 sleep 3
 
+tailscale set --advertise-exit-node
 tailscale up \
   --authkey="${TS_AUTHKEY}" \
   --hostname="${TS_HOSTNAME}" \
