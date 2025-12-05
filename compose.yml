@@ -13,4 +13,5 @@ services:
       - TS_AUTHKEY=${TS_AUTHKEY}
       - TS_ROUTES=${TS_ROUTES}
       - TS_HOSTNAME=${TS_HOSTNAME}
+      - TS_EXIT_NODE=${TS_EXIT_NODE}
     restart: unless-stopped

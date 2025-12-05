@@ -11,11 +11,11 @@ TAILSCALED_PID=$!
 
 sleep 3
 
-tailscale set --advertise-exit-node
 tailscale up \
   --authkey="${TS_AUTHKEY}" \
   --hostname="${TS_HOSTNAME}" \
-  --advertise-routes="${TS_ROUTES}"
+  --advertise-routes="${TS_ROUTES}" \
+  $( [ "${TS_EXIT_NODE}" = "true" ] && echo "--advertise-exit-node" )
 
 echo "Tailscale started successfully. Container will keep running."
 
