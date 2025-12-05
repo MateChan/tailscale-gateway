@@ -18,6 +18,7 @@ tailscale up \
   --authkey="${TS_AUTHKEY}" \
   --hostname="${TS_HOSTNAME}" \
   --advertise-routes="${TS_ROUTES}" \
+  --accept-routes \
   $( [ "${TS_EXIT_NODE}" = "true" ] && echo "--advertise-exit-node" )
 
 echo "Tailscale started successfully. Container will keep running."
