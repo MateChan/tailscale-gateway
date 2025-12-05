@@ -9,7 +9,10 @@ set -e
 tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock &
 TAILSCALED_PID=$!
 
-sleep 3
+until tailscale status >/dev/null 2>&1; do
+  echo "Waiting for tailscaled to start..."
+  sleep 1
+done
 
 tailscale up \
   --authkey="${TS_AUTHKEY}" \
