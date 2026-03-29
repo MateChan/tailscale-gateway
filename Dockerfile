@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 RUN apt-get update && apt-get install -y curl ca-certificates gnupg iptables
 RUN curl -fsSL https://tailscale.com/install.sh | sh
 COPY start.sh /start.sh
